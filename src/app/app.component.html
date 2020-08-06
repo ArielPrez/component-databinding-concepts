@@ -1,9 +1,11 @@
 <div class="container">
+  <!-- DATA SHOWED FROM THE CHILD -->
   <app-cockpit 
     (serverCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)"
   ></app-cockpit>
   <hr>
+  <!-- DATA SHOWED FROM THE PARENT -->
   <div class="row">
     <div class="col-xs-12">
       <app-server-element 

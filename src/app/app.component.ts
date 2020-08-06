@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // This array contain the data to show in the child componet
   serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
 
+
+  // These methods that receives the data from the child component as event and save it.(push)
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
