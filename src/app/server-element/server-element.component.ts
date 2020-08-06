@@ -5,7 +5,8 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated  // None , Native
-  // to ensure only this component receives the style defines in it.
+  // To ensure only this component receives the style defines in it,
+    // in browsers that don't support the Angular view encapsulation.
 })
 export class ServerElementComponent implements OnInit {
 

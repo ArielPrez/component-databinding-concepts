@@ -21,15 +21,15 @@ export class CockpitComponent implements OnInit {
   }
 
   // These methods emit the data from the child component.
-  onAddServer() {
+  onAddServer(nameImput: HTMLInputElement) {
     this.serverCreated.emit({
-      serverName: this.newServerName,
+      serverName: nameImput.value,
       serverContent: this.newServerContent
     });
   }
-  onAddBlueprint() {
+  onAddBlueprint(nameImput: HTMLInputElement) {
     this.blueprintCreated.emit({
-      serverName: this.newServerName,
+      serverName: nameImput.value,
       serverContent: this.newServerContent
     });
   }
