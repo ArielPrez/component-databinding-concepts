@@ -8,9 +8,11 @@
   <!-- DATA SHOWED FROM THE PARENT -->
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first element</button>
       <app-server-element 
       *ngFor="let item of serverElements"
       [someAlias]="item"
+      [name]="item.name"
       >
       <!-- Projecting content into the component using ng-content directive  -->
       <p>

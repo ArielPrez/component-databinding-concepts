@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -8,16 +8,23 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   // To ensure only this component receives the style defines in it,
     // in browsers that don't support the Angular view encapsulation.
 })
-export class ServerElementComponent implements OnInit {
-
+export class ServerElementComponent implements OnInit, OnChanges {
   // The INPUT Decorator have the type of data to be show.
   // Need it to send the data from the parent component to the child component.
   // tslint:disable-next-line: no-input-rename
   @Input('someAlias') element: {type: string, name: string, content: string};
+  @Input() name: string;
+  constructor() { console.log('Constructor called!'); }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // tslint:disable-next-line: use-life-cycle-interface
+  ngOnChanges(changes: SimpleChanges): void {
+    // Called before any other lifecycle hook.
+    // Use it to inject dependencies, but avoid any serious work here.
+    // Add '${implements OnChanges}' to the class.
+    console.log('ngOnChanges called!');
+    console.log(changes);
   }
+
+  ngOnInit(): void { console.log('ngOnInit called!'); }
 
 }
