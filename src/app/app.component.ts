@@ -30,5 +30,9 @@ export class AppComponent {
     this.serverElements[0].name = 'Changed!';
   }
 
+  onDestroyLastElement() {
+    // tslint:disable-next-line: no-unused-expression
+    this.serverElements.splice(0, 1);
+  }
 
 }

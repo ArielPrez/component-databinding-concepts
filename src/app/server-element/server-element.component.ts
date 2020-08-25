@@ -8,7 +8,8 @@ import { Component,
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked
+  AfterViewChecked,
+  OnDestroy
 } from '@angular/core';
 
 @Component({
@@ -26,7 +27,8 @@ export class ServerElementComponent implements
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked,
+  OnDestroy {
   // The INPUT Decorator have the type of data to be show.
   // Need it to send the data from the parent component to the child component.
   // tslint:disable-next-line: no-input-rename
@@ -62,5 +64,10 @@ export class ServerElementComponent implements
   ngAfterViewInit(): void { console.log('ngAfterViewInit called!'); }
 
   ngAfterViewChecked(): void { console.log('ngAfterViewChecked called!'); }
+
+  ngOnDestroy(): void {
+    console.log('OnDestroy called!');
+    // throw new Error("Method not implemented.");
+  }
 
 }
