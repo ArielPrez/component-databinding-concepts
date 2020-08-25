@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { Component,
   OnInit,
   Input,
@@ -9,7 +10,8 @@ import { Component,
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy,
+  ViewChild
 } from '@angular/core';
 
 @Component({
@@ -34,6 +36,7 @@ export class ServerElementComponent implements
   // tslint:disable-next-line: no-input-rename
   @Input('someAlias') element: {type: string, name: string, content: string};
   @Input() name: string;
+  @ViewChild('heading', {static: true}) header: ElementRef;
   constructor() { console.log('Constructor called!'); }
 
   // tslint:disable-next-line: use-life-cycle-interface
@@ -54,14 +57,18 @@ export class ServerElementComponent implements
     // Add 'implements DoCheck' to the class.
     console.log('ngDoCheck called!');
   }
-  ngAfterContentInit(): void { console.log('ngAfterContentInit called!'); }
+  ngAfterContentInit(): void { console.log('ngAfterContentInit called!');
+  console.log('Text Content: ' + this.header.nativeElement.textContent);
+}
 
   ngAfterContentChecked(): void {
     // Called after every check of the component's or directive's content.
     // Add 'implements AfterContentChecked' to the class.
     console.log('ngAfterContentChecked called!');
   }
-  ngAfterViewInit(): void { console.log('ngAfterViewInit called!'); }
+  ngAfterViewInit(): void { console.log('ngAfterViewInit called!');
+  console.log('Text Content: ' + this.header.nativeElement.textContent);
+}
 
   ngAfterViewChecked(): void { console.log('ngAfterViewChecked called!'); }
 
