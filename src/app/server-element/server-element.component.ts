@@ -49,7 +49,7 @@ export class ServerElementComponent implements
     console.log(changes);
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     console.log('ngOnInit called!');
     console.log('Text Content: ' + this.header.nativeElement.textContent);
     console.log('Text content of paragraph: ' + this.paragraph.nativeElement.textContent);
